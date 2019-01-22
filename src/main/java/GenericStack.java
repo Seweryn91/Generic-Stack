@@ -1,4 +1,5 @@
 import Exceptions.StackOverflowException;
+import Exceptions.StackUnderflowException;
 
 public class GenericStack<T> {
 
@@ -18,14 +19,16 @@ public class GenericStack<T> {
 
     public T push(T item) throws StackOverflowException {
         if (this.top+1 == this.size) {
-            throw new StackOverflowException("Reached stack size limit");
+            throw new StackOverflowException("Reached stack size limit!");
         }
 
         this.array[++this.top] = item;
         return item;
     }
 
-    public T pop() {
+    public T pop() throws StackUnderflowException {
+        if (top == -1)
+            throw new StackUnderflowException("Stack is empty!");
         Object poppedItem = array[top--];
         return (T) poppedItem;
     }
