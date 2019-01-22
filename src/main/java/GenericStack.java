@@ -14,7 +14,10 @@ public class GenericStack<T> {
         this.array = new Object[size];
     }
 
-    public T push(T item){ return item; }
+    public T push(T item){
+        this.array[++this.top] = item;
+        return item;
+    }
 
     public T pop(){}
 
