@@ -25,4 +25,12 @@ class GenericStackTest {
         int actualSize = stack.spaceTaken();
         assertEquals(expectedSize, actualSize);
     }
+
+    @Test
+    @DisplayName("Test pushing too much items")
+    void testStackOverflow() throws StackOverflowException {
+        GenericStack stack = new GenericStack(1);
+        stack.push(1);
+        assertThrows(StackOverflowException.class, () -> stack.push(2));
+    }
 }
