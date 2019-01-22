@@ -1,4 +1,5 @@
 import exceptions.StackOverflowException;
+import exceptions.StackUnderflowException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -28,9 +29,31 @@ class GenericStackTest {
 
     @Test
     @DisplayName("Test pushing too much items")
-    void testStackOverflow() throws StackOverflowException {
+    void testStackOverflow() throws StackOverflowException, StackUnderflowException {
         GenericStack stack = new GenericStack(1);
         stack.push(1);
         assertThrows(StackOverflowException.class, () -> stack.push(2));
+    }
+
+    @Test
+    @DisplayName("Test popping too much items")
+    void testStackUnderflow() throws StackUnderflowException, StackOverflowException {
+        GenericStack stack = new GenericStack(1);
+        stack.push(1);
+        stack.pop();
+        assertThrows(StackUnderflowException.class, () -> stack.pop());
+
+    }
+
+    @Test
+    @DisplayName("Test peeking")
+    void testStackPeek() throws StackOverflowException {
+        GenericStack stack = new GenericStack(10);
+        stack.push(1);
+        stack.push(2);
+        stack.push(79);
+
+        int expected = 79;
+        assertEquals(expected, stack.peek());
     }
 }
