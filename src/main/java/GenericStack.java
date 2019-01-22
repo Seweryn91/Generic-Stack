@@ -30,5 +30,9 @@ public class GenericStack<T> {
 
     public int size() { return this.size; }
 
+    public int spaceLeft() {
+        return this.size - (this.top + 1);
+    }
+
 }
 
