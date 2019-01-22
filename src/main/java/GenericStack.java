@@ -34,15 +34,13 @@ public class GenericStack<T> {
     }
 
     @SuppressWarnings("unchecked")
-    public T peek() {
-        return (T) array[top];
-    }
+    public T peek() { return (T) array[top]; }
 
     public int size() { return this.size; }
 
-    public int spaceLeft() {
-        return this.size - (this.top + 1);
-    }
+    public int spaceTaken() { return this.top + 1; }
+
+    public int spaceLeft() { return this.size - (this.top + 1); }
 
 }
 
