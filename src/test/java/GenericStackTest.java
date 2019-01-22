@@ -29,7 +29,7 @@ class GenericStackTest {
 
     @Test
     @DisplayName("Test pushing too much items")
-    void testStackOverflow() throws StackOverflowException, StackUnderflowException {
+    void testStackOverflow() throws StackOverflowException {
         GenericStack stack = new GenericStack(1);
         stack.push(1);
         assertThrows(StackOverflowException.class, () -> stack.push(2));
@@ -67,5 +67,17 @@ class GenericStackTest {
 
         int expected = 15;
         assertEquals(expected, stack.pop());
+    }
+
+    @Test
+    @DisplayName("Test calculating space left")
+    void testSpaceLeft() throws StackOverflowException{
+        GenericStack stack = new GenericStack(10);
+        stack.push(5);
+        stack.push(6);
+        stack.push(98);
+
+        int expected = 7;
+        assertEquals(expected, stack.spaceLeft());
     }
 }
