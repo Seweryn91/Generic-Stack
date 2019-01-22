@@ -24,6 +24,10 @@ public class GenericStack<T> {
         return (T) poppedItem;
     }
 
+    public T peek() {
+        return (T) array[top];
+    }
+
     public int size() { return this.size; }
 
 }
