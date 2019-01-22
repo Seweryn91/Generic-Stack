@@ -56,4 +56,16 @@ class GenericStackTest {
         int expected = 79;
         assertEquals(expected, stack.peek());
     }
+
+    @Test
+    @DisplayName("Test popping elements from stack")
+    void testPop() throws StackOverflowException, StackUnderflowException {
+        GenericStack stack = new GenericStack(10);
+        stack.push(1);
+        stack.push(2);
+        stack.push(15);
+
+        int expected = 15;
+        assertEquals(expected, stack.pop());
+    }
 }
