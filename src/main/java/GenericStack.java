@@ -24,6 +24,7 @@ public class GenericStack<T> {
         return item;
     }
 
+    @SuppressWarnings("unchecked")
     public T pop() throws StackUnderflowException {
         if (top == -1)
             throw new StackUnderflowException("Stack is empty!");
@@ -32,6 +33,7 @@ public class GenericStack<T> {
         return (T) poppedItem;
     }
 
+    @SuppressWarnings("unchecked")
     public T peek() {
         return (T) array[top];
     }
